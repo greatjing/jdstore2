@@ -1,0 +1,25 @@
+<div class="col-md-4 col-md-offset-4">
+  <h2>新增商品</h2>
+  <hr>
+
+  <%= form_for [:admin, @product]  do |p| %>
+
+  商品名称：
+  <%= p.text_field :title %>
+
+  <br>
+  描述:
+  <%= p.text_area :description %>
+
+  <br>
+  价格：
+  <%= p.text_field :price %>
+
+  <br>
+  数量
+  <%= p.text_field :quantity%>
+
+  <br>
+  <%= p.submit "Submit", :disable_with => 'submiting...' %>
+  <% end %>
+</div>
