@@ -20,6 +20,12 @@
   <%= p.text_field :quantity%>
 
   <br>
+  <!-- 上传图片 -->
+  图片
+  <%#= p.text_file :image%>
+  <%= p.file_field :image, accept: 'image/png,image/jpeg'%>
+
+  <br>
   <%= p.submit "Submit", :disable_with => 'submiting...' %>
   <% end %>
 </div>
