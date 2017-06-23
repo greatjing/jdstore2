@@ -1,31 +1,48 @@
-<div class="col-md-4 col-md-offset-4">
+<!-- <div class="col-md-4 col-md-offset-4"> -->
   <h2>新增商品</h2>
   <hr>
 
-  <%= form_for [:admin, @product]  do |p| %>
+<%= simple_form_for [:admin, @product]  do |p| %>
 
-  商品名称：
-  <%= p.text_field :title %>
+  <!-- 商品名称： -->
+  <div class="group">
+    <%= p.input :title %>
+    <!-- <%= p.text_field :title %> -->
+  </div>
 
-  <br>
-  描述:
-  <%= p.text_area :description %>
 
-  <br>
-  价格：
-  <%= p.text_field :price %>
+  <!-- 描述: -->
+  <div class="group">
+    <%= p.input :description %>
+    <!-- <%= p.text_area :description %> -->
+  </div>
 
-  <br>
-  数量
-  <%= p.text_field :quantity%>
 
-  <br>
+  <!-- 价格： -->
+  <div class="group">
+    <%= p.input :price %>
+    <!-- <%= p.text_field :price %> -->
+  </div>
+
+
+  <!-- 数量 -->
+  <div class="group">
+    <%= p.input :quantity %>
+    <!-- <%= p.text_field :quantity%> -->
+  </div>
+
+
+
   <!-- 上传图片 -->
-  图片
+  <!-- 图片 -->
   <%#= p.text_file :image%>
-  <%= p.file_field :image, accept: 'image/png,image/jpeg'%>
+  <div class="group">
+    <!-- <%= p.file_field :image, accept: 'image/png,image/jpeg'%> -->
+    <%= p.input :image, as: :file %>
+  </div>
 
   <br>
+
   <%= p.submit "Submit", :disable_with => 'submiting...' %>
-  <% end %>
-</div>
+<% end %>
+<!-- </div> -->
