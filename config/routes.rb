@@ -10,7 +10,8 @@ Rails.application.routes.draw do
       post :add_to_cart
     end
   end
-  #root 'admin/products#index
-  #root 'welcome#index'
+  
+  resources :carts
+
   root 'products#index'
 end
