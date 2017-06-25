@@ -9,6 +9,7 @@ class Cart < ApplicationRecord
     ci.save
   end
 
+#计算购物车总价
   def total_price
     sum = 0
     cart_items.each do |cart_item|
@@ -18,4 +19,10 @@ class Cart < ApplicationRecord
     end
     sum
   end
+
+#清空购物车
+  def clean!
+    cart_items.destroy_all
+  end
+
 end
