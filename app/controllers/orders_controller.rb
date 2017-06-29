@@ -16,6 +16,10 @@ class OrdersController < ApplicationController
         product_list.save
       end
 
+      current_cart.clean!
+      #发确认信
+      OrderMailer.notify_order_placed(@order).deliver!
+
       redirect_to order_path(@order.token)
     else
       redirect_to 'carts/checkout'
