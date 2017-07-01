@@ -40,7 +40,7 @@ class Order < ApplicationRecord
     end
 
     event :ship do
-      transitions from: :paid,          to: :shipped
+      transitions from: :paid,          to: :shipping
     end
 
     event :deliver do
@@ -48,7 +48,11 @@ class Order < ApplicationRecord
     end
 
     event :return_good do
-      transitions from: [:order_placed, :paid], to: :order_cancelled
+      transitions from: :shipped,       to: :good_returned
+    end
+
+    event :cancel_order do
+      transitions form: [:order_placed, :paid], to: :order_cancelled
     end
 
   end
